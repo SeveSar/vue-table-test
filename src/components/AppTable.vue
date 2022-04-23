@@ -47,30 +47,7 @@ import AppRowTable from "@/components/AppRowTable";
 import AppUserInfo from "@/components/AppUserInfo";
 import AppForm from "@/components/AppForm";
 import AppNotification from "@/components/AppNotification";
-// const sortFunctions = {
-//   id(userArray, order) {
-//     return userArray.sort((a, b) => (b.id - a.id) * order);
-//   },
-//   firstName(userArray, order) {
-//     return userArray.sort(
-//       (a, b) => a.firstName.localeCompare(b.firstName) * order
-//     );
-//   },
-//   lastName(userArray, order) {
-//     return userArray.sort(
-//       (a, b) => a.lastName.localeCompare(b.lastName) * order
-//     );
-//   },
-//   email(userArray, order) {
-//     return userArray.sort((a, b) => a.email.localeCompare(b.email) * order);
-//   },
-//   phone(userArray, order) {
-//     return userArray.sort((a, b) => a.phone.localeCompare(b.phone) * -order);
-//   },
-//   all(userArray) {
-//     return userArray;
-//   },
-// };
+
 export default {
   components: {
     AppRowTable,
@@ -95,10 +72,7 @@ export default {
     };
   },
   methods: {
-    // changeSortParams(sortParam) {
-    //   this.sortParam = sortParam;
-    //   this.order = this.order * -1;
-    // },
+
     clickUser(user) {
       this.user = user;
     },
@@ -109,13 +83,7 @@ export default {
   },
   computed: {
     ...mapGetters(["userSliced", "users"]),
-    // sortedList() {
-    //   if (!this.inputSearch) {
-    //     return sortFunctions[this.sortParam](this.userSliced, this.order);
-    //   } else {
-    //     return sortFunctions[this.sortParam](this.filteredUsers, this.order);
-    //   }
-    // },
+
     filteredUsers() {
       let sortKey = this.sortKey;
       let filterKey = this.inputSearch && this.inputSearch.toLowerCase();
@@ -136,16 +104,6 @@ export default {
         });
       }
       return users;
-      // return this.users.filter((user) => {
-      //   return (
-      //     user.firstName
-      //       .toLowerCase()
-      //       .indexOf(this.inputSearch.toLowerCase()) !== -1 ||
-      //     user.lastName
-      //       .toLowerCase()
-      //       .indexOf(this.inputSearch.toLowerCase()) !== -1
-      //   );
-      // });
     },
     changeSortIcon() {
       return this.order !== 1 ? true : false;
